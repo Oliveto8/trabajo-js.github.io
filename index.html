@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codo a codo js</title>
+
+    <!--Archivos Locales-->
+
+    <link rel="stylesheet" href="./CSS/styles.css">
+
+    <!--Bootstrap-->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-xxl navbar-dark bg-dark fixed-top">
+        <div class="container-fluid" id="menuDePagina">
+          <a class="navbar-brand fs-3" href="#">Conf Bs Ar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse container-fluid nav justify-content-end"  id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">La conferencia</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Los oradores</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">El lugar y la fecha</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Conviértete en orador</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="#" id="comprarT" >Comprar tickets</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+     <!-- Cards -->
+
+     <div class="container cards">
+      <div class="row filas">
+        <div class="col-sm columns">
+          <div class="card" id="Estudiante" >
+            <div class="card-body">
+              <h4 class="card-title" >Estudiante</h4>
+              <p>Tienen un descuento</p>
+              <h5>80%</h5>
+              <p><em>* presentar documentación</em></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm columns">
+          <div class="card" id="Trainee" >
+            <div class="card-body">
+              <h4 class="card-title">Trainee</h4>
+              <p>Tienen un descuento</p>
+              <h5>50%</h5>
+              <p><em>* presentar documentación</em></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm columns">
+          <div class="card" id="Junior">
+            <div class="card-body">
+              <h4 class="card-title">Junior</h4>
+              <p>Tienen un descuento</p>
+              <h5>15%</h5>
+              <p><em>* presentar documentación</em></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Venta -->
+
+  <div class="text-center mt-2">
+    <p>VENTA</p>
+  </div> 
+
+  <div class="text-center mt-1 my-5">
+    <h1 class="fw">VALOR DE TICKET 200$</h1>
+  </div>
+
+  <!-- Formulario -->
+
+  <div class="container containerForm">
+    <form action="#" class="form-group">
+        <div class="d-flex gap-3">
+            <input type="text" id="nameImp" class="form-control fs-4" placeholder="Nombre" required>
+            <input type="text" id="apellidoImp" class="form-control fs-4" placeholder="Apellido" required>
+        </div>
+        <div class="pt-4">
+            <input type="email" id="emailImp" class="form-control fs-4" placeholder="Correo" required>
+        </div>
+        <div class="inputs d-flex">
+            <div class="w-100">
+                <label for="cantidad" class="form-label">Cantidad</label>
+                <input type="number" min="1" id="cantidad" value="" class="form-control fs-4" required>
+            </div>
+            <div class="w-100">
+                <label for="categoria" class="form-label">Categoría</label>
+                 <select class="form-select fs-4" id="categoria" required>
+                    <option value="Ninguna" selected>Sin categoria</option>
+                    <option value="Estudiante">Estudiante</option>
+                    <option value="Trainee">Trainee</option>
+                    <option value="Junior">Junior</option>
+                 </select>
+            </div>
+        </div>
+        
+        <div class="alertDanger alert" id="error" role="alert">
+            <p><i class="container-fluid"> Los datos no son validos</i></p>
+        </div>
+        <div class="alertBlue alert alert-primary" role="alert">
+            <p id="totalAPagar">Total a pagar: $</p>
+        </div>
+        
+        <div class="buttons d-flex gap-3">
+            <button id="delete" class="boton btn w-100" type="reset" onclick="funcionBorrar()">Borrar</button>
+            <button id="resumen" class="boton btn w-100" type="button" onclick="funcionResumen()">Resumen</button>
+        </div>
+    </form>
+  </div>
+
+  <!-- Footer -->
+
+  <footer class="container-fluid" id="footer">
+    <ul class="d-flex justify-content-around">
+        <li class="footer-item">
+          <a class="footer-link" href="#">Preguntas <br>frecuentes</a>
+        </li>
+        <li class="footer-item">
+          <a class="footer-link" href="#">Contactanos</a>
+        </li>
+        <li class="footer-item">
+          <a class="footer-link" href="#">Prensa</a>
+        </li>
+        <li class="footer-item">
+          <a class="footer-link" href="#">Conferencias</a>
+        </li>
+        <li class="footer-item">
+          <a class="footer-link" href="#">Terminos y <br>condiciones</a>
+        </li>
+        <li class="footer-item">
+          <a class="footer-link" href="#">Privacidad</a>
+        </li>
+        <li class="footer-item">
+          <a class="footer-link" href="#">Estudiantes</a>
+        </li>
+    </ul>
+    
+</footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./JS/index.js"></script>
+
+  </body>
+</html>
